@@ -3,20 +3,27 @@ package com.codurance;
 import static org.apache.commons.lang.builder.EqualsBuilder.reflectionEquals;
 import static org.apache.commons.lang.builder.HashCodeBuilder.reflectionHashCode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game {
 
-  private final boolean board;
+  List<Cell> cells = new ArrayList<>();
 
   public Game() {
-    board = true;
   }
 
-  public Game state() {
-    return new Game();
+  public Game(Cell cell) {
+    cells.add(cell);
   }
 
   public Game nextGeneration() {
     return new Game();
+  }
+
+  @Override
+  public String toString() {
+    return "Cells: " + cells.toString();
   }
 
   @Override
